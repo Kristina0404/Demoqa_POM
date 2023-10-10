@@ -1,5 +1,6 @@
-package org.ait.demoqa.pages;
+package org.ait.demoqa.pages.alertsFrameWindows;
 
+import org.ait.demoqa.pages.HomePage;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

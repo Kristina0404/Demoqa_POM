@@ -1,9 +1,8 @@
-package org.ait.demoqa.tests;
+package org.ait.demoqa.tests.alertsWindow;
 
 import org.ait.demoqa.pages.HomePage;
-import org.ait.demoqa.pages.WindowPage;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.ait.demoqa.pages.alertsFrameWindows.WindowPage;
+import org.ait.demoqa.tests.TestBase;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
