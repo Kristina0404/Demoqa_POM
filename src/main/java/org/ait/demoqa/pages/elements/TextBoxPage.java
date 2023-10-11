@@ -35,14 +35,20 @@ public class TextBoxPage extends BasePage {
     WebElement permanentAddress;
     @FindBy(id = "submit")
     WebElement submitBtn;
+    @FindBy(xpath = "//div[@class= 'border col-md-12 col-sm-12']")
+    WebElement resultField;
 
     public TextBoxPage assertCopyPastText(String text) {
-    if(currentAddress != null && permanentAddress!=null){
+   // if(currentAddress != null && permanentAddress!=null){
       clickWithJSExecutor(submitBtn,0,400);
-        String currentAddressValue = currentAddress.getText();
-        String permanentAddressValue = permanentAddress.getText();
+        pause(1000);
+       // String currentAddressValue = currentAddress.getText();
+        //String permanentAddressValue = permanentAddress.getText();
+        String currentAddressValue = currentAddress.getAttribute(text);
+        String permanentAddressValue = permanentAddress.getAttribute(text);
         Assert.assertEquals(currentAddressValue,permanentAddressValue);
-    }
+
+   // }
         return this;
     }
 
