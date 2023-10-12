@@ -31,24 +31,17 @@ public class TextBoxPage extends BasePage {
         return this;
     }
 
-    @FindBy(id = "permanentAddress")
-    WebElement permanentAddress;
-    @FindBy(id = "submit")
-    WebElement submitBtn;
-    @FindBy(xpath = "//div[@class= 'border col-md-12 col-sm-12']")
-    WebElement resultField;
+    @FindBy(css = ".border > #currentAddress")
+    WebElement currentAddressResult;
 
-    public TextBoxPage assertCopyPastText(String text) {
-   // if(currentAddress != null && permanentAddress!=null){
-      clickWithJSExecutor(submitBtn,0,400);
-        pause(1000);
-       // String currentAddressValue = currentAddress.getText();
-        //String permanentAddressValue = permanentAddress.getText();
-        String currentAddressValue = currentAddress.getAttribute(text);
-        String permanentAddressValue = permanentAddress.getAttribute(text);
-        Assert.assertEquals(currentAddressValue,permanentAddressValue);
+    @FindBy(css = ".border > #permanentAddress")
+    WebElement permanentAddressResult;
 
-   // }
+    public TextBoxPage assertCopyPastText() {
+        String[] current =  currentAddressResult.getText().split(":");
+        String[] permanent =  permanentAddressResult.getText().split(":");
+
+        Assert.assertEquals(permanent[1],current[1]);
         return this;
     }
 
